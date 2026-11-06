@@ -1,0 +1,17 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $username = trim($_POST['username'] ?? '');
+
+    if ($username !== '') {
+
+        $file = fopen("login.txt", "a");
+
+        fwrite($file, "Username: " . $username . "\n");
+
+        fclose($file);
+
+        echo "Login saved successfully!";
+    }
+}
+?>
